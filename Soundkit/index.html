@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <style>
+        audio {
+            display:none;
+        }
+        button {
+            display:inline-block;
+            color:#444;
+            border:1px solid #CCC;
+            background:#DDD;
+            box-shadow: 0 0 5px -1px rgba(0,0,0,0.2);
+            cursor:pointer;
+            vertical-align:middle;
+            max-width: 100px;
+            padding: 5px;
+            text-align: center;
+            width: 300px;
+            height: 100px;
+            
+        }
+        
+        button:hover {
+            background:#767676;
+            color: white;
+        }
+        
+        button:active {
+            color: #444;
+            box-shadow: 0 0 5px -1px rgba(0,0,0,0.8);
+            background: #DDD;
+        }
+        body{
+            width: 100%;
+            background: #c6c6c6;
+            
+        }
+        div {
+            text-align: center;
+            //background: red;
+            margin: 0 auto;
+            padding-top: 10%;
+            
+        }
+
+        h1, p {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <audio src="sounds/clap.wav" controls id="clap"></audio>
+    <audio src="sounds/boom.wav" controls id="boom"></audio>
+    <audio src="sounds/hihat.wav" controls id="hihat"></audio>
+    <audio src="sounds/ride.wav" controls id="ride"></audio>
+    <div>
+        <button id="channel1RecBtn">Record</button>
+        <button id="channel1PlayBtn">Play</button>
+    </div>
+    <h1>Guide</h1>
+    <p>Here's a simple DrumKit. <br><br>Use four buttons, 'A', 'S', 'D' and 'F' to play four different sounds. <br> Then you can record them using Record button and play the recording witg the Play button. Enjoy!</p>
+
+    <script type="text/javascript">
+        const clapSound = document.querySelector('#clap')
+        const boomSound = document.querySelector('#boom')
+        const hihatSound = document.querySelector('#hihat')
+        const rideSound = document.querySelector('#ride')
+        const ch1RecBtn = document.querySelector('#channel1RecBtn')
+        const ch1PlayBtn = document.querySelector('#channel1PlayBtn')
+        const channel1 = []
+        let channel1StartTime = 0
+        document.body.addEventListener('keypress', playAudio)
+        document
+            .querySelector('#channel1RecBtn')
+            .addEventListener('click', recChannel1)
+        document
+            .querySelector('#channel1PlayBtn')
+            .addEventListener('click', playChannel1)
+        function recChannel1() {
+            channel1StartTime = Date.now()
+        }
+        function playChannel1() {
+            channel1.forEach(el => { 
+                setTimeout(playSound, el.time, el.code)
+            })
+        }
+        function playSound(code) {
+            switch (code) {
+                case 'KeyA':
+                    clapSound.currentTime = 0
+                    clapSound.play()
+                    break
+                case 'KeyS':
+                    boomSound.currentTime = 0
+                    boomSound.play()
+                    break
+                case 'KeyD':
+                    hihatSound.currentTime = 0
+                    hihatSound.play()
+                    break
+                case 'KeyF':
+                    rideSound.currentTime = 0
+                    rideSound.play()
+                    break
+            }
+        }
+        function playAudio(e) {
+            playSound(e.code)
+            const time = Date.now() - channel1StartTime
+            channel1.push({
+                code: e.code,
+                time: time
+            })
+        }
+    </script>
+</body>
+
+</html>
