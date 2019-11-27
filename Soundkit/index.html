@@ -18,7 +18,7 @@
             max-width: 100px;
             padding: 5px;
             text-align: center;
-            width: 300px;
+            width: 350px;
             height: 100px;
             
         }
@@ -58,64 +58,172 @@
     <audio src="sounds/hihat.wav" controls id="hihat"></audio>
     <audio src="sounds/ride.wav" controls id="ride"></audio>
     <div>
-        <button id="channel1RecBtn">Record</button>
-        <button id="channel1PlayBtn">Play</button>
+        <button id="channel1RecBtn">Record channel 1</button>
+        <button id="channel1PlayBtn">Play channel 1</button>
+        <button id="channel2RecBtn">Record channel 2</button>
+        <button id="channel2PlayBtn">Play channel 2</button>
+        <button id="channel3RecBtn">Record channel 3</button>
+        <button id="channel3PlayBtn">Play channel 3</button>
+        <button id="channel4RecBtn">Record channel 4</button>
+        <button id="channel4PlayBtn">Play channel 4</button>
+        <button id="allPlayBtn">play all</button>
     </div>
     <h1>Guide</h1>
     <p>Here's a simple DrumKit. <br><br>Use four buttons, 'A', 'S', 'D' and 'F' to play four different sounds. <br> Then you can record them using Record button and play the recording witg the Play button. Enjoy!</p>
 
     <script type="text/javascript">
-        const clapSound = document.querySelector('#clap')
-        const boomSound = document.querySelector('#boom')
-        const hihatSound = document.querySelector('#hihat')
-        const rideSound = document.querySelector('#ride')
-        const ch1RecBtn = document.querySelector('#channel1RecBtn')
-        const ch1PlayBtn = document.querySelector('#channel1PlayBtn')
-        const channel1 = []
-        let channel1StartTime = 0
-        document.body.addEventListener('keypress', playAudio)
-        document
-            .querySelector('#channel1RecBtn')
-            .addEventListener('click', recChannel1)
-        document
-            .querySelector('#channel1PlayBtn')
-            .addEventListener('click', playChannel1)
-        function recChannel1() {
-            channel1StartTime = Date.now()
-        }
-        function playChannel1() {
-            channel1.forEach(el => { 
-                setTimeout(playSound, el.time, el.code)
+       const clapSound = document.querySelector('#clap')
+const boomSound = document.querySelector('#boom')
+const hihatSound = document.querySelector('#hihat')
+const rideSound = document.querySelector('#ride')
+const ch1RecBtn = document.querySelector('#channel1RecBtn')
+const ch1PlayBtn = document.querySelector('#channel1PlayBtn')
+const ch2RecBtn = document.querySelector('#channel2RecBtn')
+const ch2PlayBtn = document.querySelector('#channel2PlayBtn')
+const ch3RecBtn = document.querySelector('#channel3RecBtn')
+const ch3PlayBtn = document.querySelector('#channel3PlayBtn')
+const ch4RecBtn = document.querySelector('#channel4RecBtn')
+const ch4PlayBtn = document.querySelector('#channel4PlayBtn')
+const paBtn = document.querySelector('#allPlayBtn')
+const channel1 = []
+const channel2 = []
+const channel3 = []
+const channel4 = []
+let chnumber = 0
+let channel1StartTime = 0
+let channel2StartTime = 0
+let channel3StartTime = 0
+let channel4StartTime = 0
+document.body.addEventListener('keypress', playAudio)
+document
+    .querySelector('#channel1RecBtn')
+    .addEventListener('click', recChannel1)
+document
+    .querySelector('#channel1PlayBtn')
+    .addEventListener('click', playChannel1)
+document
+    .querySelector('#channel2RecBtn')
+    .addEventListener('click', recChannel2)
+document
+    .querySelector('#channel2PlayBtn')
+    .addEventListener('click', playChannel2)
+document
+    .querySelector('#channel3RecBtn')
+    .addEventListener('click', recChannel3)
+document
+    .querySelector('#channel3PlayBtn')
+    .addEventListener('click', playChannel3)
+document
+    .querySelector('#channel4RecBtn')
+    .addEventListener('click', recChannel4)
+document
+    .querySelector('#channel4PlayBtn')
+    .addEventListener('click', playChannel4)
+document
+    .querySelector('#allPlayBtn')
+    .addEventListener('click', playAll)
+
+function playAll() {
+    channel1.forEach(el => { 
+        setTimeout(playSound, el.time, el.code)
+    })
+    channel2.forEach(el => { 
+        setTimeout(playSound, el.time, el.code)
+    })
+    channel3.forEach(el => { 
+        setTimeout(playSound, el.time, el.code)
+    })
+    channel4.forEach(el => { 
+        setTimeout(playSound, el.time, el.code)
+    })
+}
+function recChannel1() {
+    channel1StartTime = Date.now()
+    chnumber = 1
+}
+function recChannel2() {
+    channel2StartTime = Date.now()
+    chnumber = 2
+}
+function recChannel3() {
+    channel3StartTime = Date.now()
+    chnumber = 3
+}
+function recChannel4() {
+    channel4StartTime = Date.now()
+    chnumber = 4
+}
+function playChannel1() {
+    channel1.forEach(el => { 
+        setTimeout(playSound, el.time, el.code)
+    })
+}
+function playChannel2() {
+    channel2.forEach(el => { 
+        setTimeout(playSound, el.time, el.code)
+    })
+}
+function playChannel3() {
+    channel3.forEach(el => { 
+        setTimeout(playSound, el.time, el.code)
+    })
+}
+function playChannel4() {
+    channel4.forEach(el => { 
+        setTimeout(playSound, el.time, el.code)
+    })
+}
+function playSound(code) {
+    switch (code) {
+        case 'KeyA':
+            clapSound.currentTime = 0
+            clapSound.play()
+            break
+        case 'KeyS':
+            boomSound.currentTime = 0
+            boomSound.play()
+            break
+        case 'KeyD':
+            hihatSound.currentTime = 0
+            hihatSound.play()
+            break
+        case 'KeyF':
+            rideSound.currentTime = 0
+            rideSound.play()
+            break
+    }
+}
+function playAudio(e) {
+    playSound(e.code)            
+if (chnumber == 1) {
+    const time = Date.now() - channel1StartTime
+        channel1.push({
+            code: e.code,
+            time: time
             })
-        }
-        function playSound(code) {
-            switch (code) {
-                case 'KeyA':
-                    clapSound.currentTime = 0
-                    clapSound.play()
-                    break
-                case 'KeyS':
-                    boomSound.currentTime = 0
-                    boomSound.play()
-                    break
-                case 'KeyD':
-                    hihatSound.currentTime = 0
-                    hihatSound.play()
-                    break
-                case 'KeyF':
-                    rideSound.currentTime = 0
-                    rideSound.play()
-                    break
-            }
-        }
-        function playAudio(e) {
-            playSound(e.code)
-            const time = Date.now() - channel1StartTime
-            channel1.push({
-                code: e.code,
-                time: time
+}
+if (chnumber == 2) {
+    const time = Date.now() - channel2StartTime
+        channel2.push({
+            code: e.code,
+            time: time
             })
-        }
+}
+if (chnumber == 3) {
+    const time = Date.now() - channel3StartTime
+        channel3.push({
+            code: e.code,
+            time: time
+            })
+}
+if (chnumber == 4) {
+    const time = Date.now() - channel4StartTime
+        channel4.push({
+            code: e.code,
+            time: time
+            })
+}
+}
     </script>
 </body>
 
