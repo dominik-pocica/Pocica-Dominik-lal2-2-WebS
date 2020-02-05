@@ -1,0 +1,68 @@
+#canvas {
+    margin: auto;
+    background: #ececec;
+    width:100%;
+}
+
+.btn-disabled {
+    color: #fff !important;
+}
+
+.sepia{ -webkit-filter: sepia(1);
+-webkit-filter: sepia(100%); -moz-filter: sepia(100%);
+-ms-filter: sepia(100%); -o-filter: sepia(100%);
+filter: url(sepia.svg#old-timey);
+filter: sepia(100%);
+background-color: #5E2612;
+filter: alpha(opacity = 50);
+zoom:1;
+background: red !important;
+}
+
+.blur {
+    -webkit-filter: blur(5px);
+  filter: blur(5px);
+}
+
+.saturate {
+    -webkit-filter: saturate(8);
+  filter: saturate(8);
+}
+
+.invert {
+    -webkit-filter: invert(.8);
+  filter: invert(.8);
+}
+
+.br1 {
+  filter: brightness(2);
+}
+
+.br2 {
+  filter: brightness(3);
+}
+
+.br3 {
+  filter: brightness(5);
+}
+
+.br4 {
+  filter: brightness(20);
+}
+
+.contrast1 {
+  filter: contrast(10%);
+}
+
+.contrast2 {
+  filter: contrast(50%);
+}
+
+.contrast3 {
+  filter: contrast(200%);
+}
+
+.contrast4 {
+  filter: contrast(300%);
+}
+
