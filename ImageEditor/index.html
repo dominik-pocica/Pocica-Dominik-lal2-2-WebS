@@ -1,0 +1,94 @@
+<!html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial scale=1.0">
+        <link rel="stylesheet" href="bootstrap.min.css">
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <nav class="navbar navbar-dark bg-info mb-5">
+            <div class="container">
+                <a href="#" class="navbar-brand">Online Image Filter</a>
+            </div>
+        </nav>
+        <div class="container">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-10 m-auto">
+                    <div class="custom-file mb-3">
+                        <input type="file" class="custom-file-input" id="upload-file">
+                        <label for="upload-file" class="custom-file-label"> Choose image</label>
+                    </div>
+                    <canvas id="canvas"></canvas>
+                    <h4 class="text-center my-3">Filters</h4> <!- my -- margin at top and bot ->
+
+                   
+                   
+                   
+                    <div class="row text-center my-4">
+                         <div class="col-md-3">
+                           <button class="filter-btn br1-add btn btn-dark btn-block" id="br1">Very low brightness</button>
+                       </div>
+                                               <div class="col-md-3">
+                           <button class="filter-btn br2-add btn btn-dark btn-block" id="br2">Low brightness</button>
+                       </div>
+                                               <div class="col-md-3">
+                           <button class="filter-btn br3-add btn btn-dark btn-block" id="br3">Medium brightness</button>
+                       </div>
+                                               <div class="col-md-3">
+                           <button class="filter-btn br4-add btn btn-dark btn-block" id="br4">High brightness</button>
+                       </div>
+
+                                               
+                    </div> <!- end of row ->
+                    
+                    <div class="row text-center my-4">
+                         <div class="col-md-3">
+                           <button class="filter-btn br1-add btn btn-dark btn-block" id="contrast1">Very low contrast</button>
+                       </div>
+                                               <div class="col-md-3">
+                           <button class="filter-btn br2-add btn btn-dark btn-block" id="contrast2">Low contrast</button>
+                       </div>
+                                               <div class="col-md-3">
+                           <button class="filter-btn br3-add btn btn-dark btn-block" id="contrast3">Medium contrast</button>
+                       </div>
+                                               <div class="col-md-3">
+                           <button class="filter-btn br3-add btn btn-dark btn-block" id="contrast4">High contrast</button>
+                       </div>
+
+                                               
+                    </div> <!- end of row ->
+                    
+                    <h4 class="text-center my-3">Effects</h4>
+                    
+                    <div class="row mb-3">
+                      
+                       
+                       <div class="col-md-3">
+                           <button class="filter-btn vintage-add btn btn-dark btn-block" id="sepia">Sepia</button>
+                       </div>
+                       
+                        <div class="col-md-3">
+                           <button class="filter-btn lomo-add btn btn-dark btn-block" id="blur">Blur</button>
+                       </div>
+                       
+                        <div class="col-md-3">
+                           <button class="filter-btn clarity-add btn btn-dark btn-block" id="saturate">saturate</button>
+                       </div>
+                       
+                        <div class="col-md-3">
+                           <button class="filter-btn sincity-add btn btn-dark btn-block" id="invert">invert</button>
+                       </div>
+                        
+                    </div> <!- end row ->
+
+                </div>
+            </div>
+        </div>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/camanjs/4.1.2/caman.full.min.js" integrity="sha256-Ttj6Ke2Nzuxi5upPlHetkZxBtdTq0LV1Z6BEUUsKPfs=" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+        <script src="main.js"></script>
+    </body>
+</html>
