@@ -1,0 +1,26 @@
+body {
+    background: rgb(212, 220, 231);
+}
+canvas {
+    background: #fff;
+    width: 100%;
+    height: 100%;
+}
+
+#container {
+    height: 100%;
+    position: fixed;
+    top: 0px;
+}
+#fileUpload{
+ 
+}
+#btnDarken{
+  
+}
+#btnLighten{
+ 
+}
+#btnContrast{
+
+}
